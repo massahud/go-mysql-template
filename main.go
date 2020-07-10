@@ -20,10 +20,12 @@ func main() {
 		if err != nil {
 			return nil, err
 		}
-		_, err = db.Query("select 1 from dual")
-		if err != nil {
+
+		if err := db.Ping(); err != nil {
+			defer db.Close()
 			return nil, err
 		}
+
 		fmt.Println("DB READY")
 		return db, nil
 	})
