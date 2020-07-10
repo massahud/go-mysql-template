@@ -20,7 +20,7 @@ func main() {
 		if err != nil {
 			return nil, err
 		}
-		_, err = db.Query("select 1 from persons")
+		_, err = db.Query("select 1 from dual")
 		if err != nil {
 			return nil, err
 		}
